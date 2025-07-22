@@ -1,18 +1,5 @@
 module.exports = {
   run: [
-    // windows nvidia 50 series
-    {
-      "when": "{{platform === 'win32' && gpu === 'nvidia' && kernel.gpus && kernel.gpus.find(x => / 50.+/.test(x.model))}}",
-      "method": "shell.run",
-      "params": {
-        "venv": "{{args && args.venv ? args.venv : null}}",
-        "path": "{{args && args.path ? args.path : '.'}}",
-        "message": [
-          "uv pip install torch torchvision torchaudio {{args && args.xformers ? 'xformers' : ''}} --index-url https://download.pytorch.org/whl/cu128"
-        ]
-      },
-      "next": null
-    },
     // windows nvidia
     {
       "when": "{{platform === 'win32' && gpu === 'nvidia'}}",
@@ -21,7 +8,7 @@ module.exports = {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
         "message": [
-          "uv pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 {{args && args.xformers ? 'xformers' : ''}} --index-url https://download.pytorch.org/whl/cu121"
+          "uv pip install torch==2.7.0 torchvision==0.22.0 torchaudio==2.7.0 {{args && args.xformers ? 'xformers' : ''}} --index-url https://download.pytorch.org/whl/cu128"
         ]
       },
       "next": null
@@ -68,19 +55,6 @@ module.exports = {
         "message": "uv pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cpu"
       }
     },
-    // linux nvidia 50 series
-    {
-      "when": "{{platform === 'linux' && gpu === 'nvidia' && kernel.gpus && kernel.gpus.find(x => / 50.+/.test(x.model))}}",
-      "method": "shell.run",
-      "params": {
-        "venv": "{{args && args.venv ? args.venv : null}}",
-        "path": "{{args && args.path ? args.path : '.'}}",
-        "message": [
-          "uv pip install torch torchvision torchaudio {{args && args.xformers ? 'xformers' : ''}} --index-url https://download.pytorch.org/whl/cu128"
-        ]
-      },
-      "next": null
-    },
     // linux nvidia
     {
       "when": "{{platform === 'linux' && gpu === 'nvidia'}}",
@@ -89,7 +63,7 @@ module.exports = {
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
         "message": [
-          "uv pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 {{args && args.xformers ? 'xformers' : ''}} --index-url https://download.pytorch.org/whl/cu121"
+          "uv pip install torch==2.7.0 torchvision==0.22.0 torchaudio==2.7.0 {{args && args.xformers ? 'xformers' : ''}} --index-url https://download.pytorch.org/whl/cu128"
         ]
       },
       "next": null
