@@ -1,6 +1,5 @@
 module.exports = {
   run: [
-    // Edit this step to customize the git repository to use
     {
       method: "shell.run",
       params: {
@@ -9,7 +8,6 @@ module.exports = {
         ]
       }
     },
-    // Delete this step if your project does not use torch
     {
       method: "script.start",
       params: {
@@ -20,12 +18,11 @@ module.exports = {
         }
       }
     },
-    // Edit this step with your custom install commands
     {
       method: "shell.run",
       params: {
-        venv: "env",                // Edit this to customize the venv folder path
-        path: "app",                // Edit this to customize the path to start the shell from
+        venv: "env",
+        path: "app",
         message: [
           "uv pip install -r ../requirements.txt",
           "uv pip install {{gpu === 'nvidia' ? 'onnxruntime-gpu' : 'onnxruntime'}}"
@@ -33,29 +30,24 @@ module.exports = {
       }
     },
     {
-      method: "hf.download",
+      method: "shell.run",
       params: {
         path: "app",
-        "_": [ "lj1995/VoiceConversionWebUI" ],
-        "include": '"*.pth" "*.pt" "*.onnx"',
-        "exclude":'"rmvpe.onnx" "rmvpe.pt" "hubert_base.pt"',
-        "local-dir": "assets"
+        message: 'hf download lj1995/VoiceConversionWebUI --include "*.pth" "*.pt" "*.onnx" --exclude "rmvpe.onnx" "rmvpe.pt" "hubert_base.pt" --local-dir assets && dir'
       }
     },
     {
-      method: "hf.download",
+      method: "shell.run",
       params: {
         path: "app",
-        "_": [ "lj1995/VoiceConversionWebUI", "hubert_base.pt" ],
-        "local-dir": "assets/hubert"
+        message: "hf download lj1995/VoiceConversionWebUI hubert_base.pt --local-dir assets/hubert"
       }
     },
     {
-      method: "hf.download",
+      method: "shell.run",
       params: {
         path: "app",
-        "_": [ "lj1995/VoiceConversionWebUI", "rmvpe.pt", "rmvpe.onnx" ],
-        "local-dir": "assets/rmvpe"
+        message: "hf download lj1995/VoiceConversionWebUI rmvpe.pt rmvpe.onnx --local-dir assets/rmvpe"
       }
     }
   ]
