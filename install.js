@@ -40,7 +40,7 @@ module.exports = {
       method: "shell.run",
       params: {
         path: "app",
-        message: 'hf download lj1995/VoiceConversionWebUI --include "*.pth" "*.pt" "*.onnx" --exclude "rmvpe.onnx" "rmvpe.pt" "hubert_base.pt" --local-dir assets && dir'
+        message: 'hf download lj1995/VoiceConversionWebUI --include "*.pth" --include "*.pt" --include "*.onnx" --exclude "rmvpe.onnx" --exclude "rmvpe.pt" --exclude "hubert_base.pt" --local-dir assets && dir'
       }
     },
     {
