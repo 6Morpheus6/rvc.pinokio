@@ -6,7 +6,8 @@ module.exports = {
       params: {
         venv: "env",
         env: {
-          "PYTORCH_MPS_HIGH_WATERMARK_RATIO": "0.0"
+          "PYTORCH_MPS_HIGH_WATERMARK_RATIO": "0.0",
+          "TF_ENABLE_ONEDNN_OPTS": "0"
         },
         path: "app",
         message: [
