@@ -19,10 +19,11 @@ module.exports = {
       "when": "{{platform === 'win32' && gpu === 'amd'}}",
       "method": "shell.run",
       "params": {
+        "bluefairy": "off",
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
         "message": [
-          "uv pip install torch-directml torchaudio torchvision numpy==1.26.4",
+          "uv pip install torch-directml torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 numpy==1.26.4",
           "uv pip install onnxruntime-directml"
         ]
       },
@@ -73,6 +74,7 @@ module.exports = {
       "when": "{{platform === 'linux' && gpu === 'nvidia'}}",
       "method": "shell.run",
       "params": {
+        "bluefairy": "off",
         "venv": "{{args && args.venv ? args.venv : null}}",
         "path": "{{args && args.path ? args.path : '.'}}",
         "message": [
