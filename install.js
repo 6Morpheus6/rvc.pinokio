@@ -15,16 +15,6 @@ module.exports = {
       }
     },
     {
-      method: "script.start",
-      params: {
-        uri: "torch.js",
-        params: {
-          venv: "env",
-          path: "app",
-        }
-      }
-    },
-    {
       method: "shell.run",
       params: {
         venv: "env",
@@ -32,6 +22,16 @@ module.exports = {
         message: [
           "uv pip install -r requirments_cu128_py312.txt"
         ]
+      }
+    },
+    {
+      method: "script.start",
+      params: {
+        uri: "torch.js",
+        params: {
+          venv: "env",
+          path: "app",
+        }
       }
     },
     {
