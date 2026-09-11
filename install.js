@@ -30,7 +30,7 @@ module.exports = {
         venv: "env",
         path: "app",
         message: [
-          "uv pip install -r ../requirements.txt"
+          "uv pip install -r requirments_cu128_py312.txt"
         ]
       }
     },
