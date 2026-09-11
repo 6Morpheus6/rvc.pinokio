@@ -54,6 +54,13 @@ module.exports = {
         path: "app",
         message: "hf download lj1995/VoiceConversionWebUI rmvpe.pt rmvpe.onnx --local-dir assets/rmvpe"
       }
+    },
+    {
+      method: "shell.run",
+      params: {
+        path: "app",
+        message: 'hf download lj1995/VoiceConversionWebUI --include="pymss_weights/*" --local-dir assets'
+      }
     }
   ]
 }
