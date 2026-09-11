@@ -11,7 +11,7 @@ module.exports = {
         },
         path: "app",
         message: [
-          "{{platform === 'win32' && gpu === 'amd' ? 'python infer-web.py --dml --noautoopen' : 'python infer-web.py --noautoopen'}}",
+          "{{platform === 'win32' && gpu === 'amd' ? 'python webui.py --dml --noautoopen' : 'python webui.py --noautoopen'}}",
         ],
         on: [{
           "event": "/http:\/\/\\S+/",
